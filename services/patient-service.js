@@ -123,17 +123,9 @@ class Patient {
         : null
     );
     request.input("CreatedBy", mssql.NVarChar, "Admin");
-    request.input(
-      "CreatedDate",
-      mssql.DateTime2,
-      new Date().toLocaleDateString()
-    );
+    request.input("CreatedDate", mssql.DateTime2, new Date());
     request.input("LastUpdatedBy", mssql.NVarChar, "Admin");
-    request.input(
-      "LastUpdatedDate",
-      mssql.DateTime2,
-      new Date().toLocaleDateString()
-    );
+    request.input("LastUpdatedDate", mssql.DateTime2, new Date());
 
     var result = await request.query(`
         insert into patient

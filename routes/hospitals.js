@@ -7,4 +7,10 @@ router.get("/", async (req, res) => {
   res.send(await hospital.getHospitals());
 });
 
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  const h = req.body;
+  res.send(await hospital.addHospital(h));
+});
+
 module.exports = router;
