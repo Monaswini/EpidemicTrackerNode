@@ -8,28 +8,6 @@ let cors = require("cors");
 const { json } = require("express");
 let app = express();
 
-// const corsOpts = {
-//   origin: "const corsOpts = {
-//   origin: '*',
-
-//   methods: [
-//     'GET',
-//     'POST',
-//   ],
-
-//   allowedHeaders: [
-//     'Content-Type',
-//   ],
-// };
-
-// app.use(cors(corsOpts));",
-
-//   methods: ["GET", "POST"],
-
-//   allowedHeaders: ["Content-Type"],
-// };
-
-//app.use(cors(corsOpts));
 app.use(cors());
 app.use(json());
 app.use("/api/patients", patients);

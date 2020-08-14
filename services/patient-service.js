@@ -185,24 +185,15 @@ class Patient {
       mssql.DateTime2,
       p.relievingDate >= p.joiningDate ? p.relievingDate : null
     );
-    request.input("CreatedBy", mssql.NVarChar, "Admin");
-    request.input(
-      "CreatedDate",
-      mssql.DateTime2,
-      new Date().toLocaleDateString()
-    );
+
     request.input("LastUpdatedBy", mssql.NVarChar, "Admin");
-    request.input(
-      "LastUpdatedDate",
-      mssql.DateTime2,
-      new Date().toLocaleDateString()
-    );
+    request.input("LastUpdatedDate", mssql.DateTime2, new Date());
     request.input("Id", mssql.Int, p.id);
 
     await request.query(`
       update PatientTreatmentDetail set
         DiseaseId=@DiseaseId,HospitalId=@HospitalId,Prescription=@Prescription,PatientCurrentStatusId=@PatientCurrentStatusId,
-        RelievingDate=@RelievingDate,CreatedBy=@CreatedBy,CreatedDate=@CreatedDate,
+        RelievingDate=@RelievingDate,
         LastUpdatedBy=@LastUpdatedBy,LastUpdatedDate=@LastUpdatedDate,JoiningDate=@JoiningDate
       where patientId=@Id
     `);

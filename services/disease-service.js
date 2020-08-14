@@ -3,7 +3,9 @@ const mssql = require("../connection.js");
 class Disease {
   async getDiseases() {
     const result = await mssql.query(
-      `select id, name, diseaseTypeId from disease`
+      `select d.id, d.name, diseaseTypeId, dt.name as diseaseType from Disease as d
+      inner join DiseaseType as dt
+      on diseaseTypeId=dt.id`
     );
     return result.recordset;
   }
@@ -31,6 +33,10 @@ class Disease {
     request.input("LastUpdatedBy", mssql.NVarChar, "Admin");
     request.input("LastUpdatedDate", mssql.DateTime2, new Date());
   }
-}
 
+  async getDiseaseTypes() {
+    const result = await mssql.query(`select id, name from DiseaseType`);
+    return result.recordset;
+  }
+}
 module.exports = Disease;

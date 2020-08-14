@@ -13,4 +13,8 @@ router.post("/", async (req, res) => {
   res.send(await disease.addDisease(d));
 });
 
+router.get("/types", async (req, res) => {
+  res.send(await disease.getDiseaseTypes());
+});
+
 module.exports = router;
