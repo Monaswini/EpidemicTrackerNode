@@ -1,5 +1,4 @@
 const mssql = require("../connection.js");
-const moment = require("moment");
 
 class Hospital {
   async getHospitals() {

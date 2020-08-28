@@ -24,7 +24,7 @@ class Disease {
   }
 
   prepareRequest(request, disease) {
-    request.input("Name", mssql.NVarChar, disease.name);
+    request.input("Name", mssql.NVarChar, disease.diseaseName);
     request.input("DiseaseTypeId", mssql.Int, disease.diseaseTypeId);
     request.input("IsActive", mssql.Bit, 1);
 
