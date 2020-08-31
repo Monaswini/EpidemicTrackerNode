@@ -10,7 +10,6 @@ class Hospital {
     const request = new mssql.Request();
 
     this.prepareRequest(request, hospital);
-    console.log(request.parameters.CreatedDate.type);
     await request.query(`
         insert into Hospital
           (Name,Area,Street,City,State,PinCode,Phone,CreatedBy,CreatedDate,LastUpdatedBy,LastUpdatedDate,IsActive)
